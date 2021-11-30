@@ -1,4 +1,5 @@
 from config import *
+
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
 # callbacks
 callbacks_list = [

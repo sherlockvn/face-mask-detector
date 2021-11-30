@@ -21,8 +21,10 @@ def load_dataframe():
 
     with_mask = os.listdir(MASKON_FOLDER)
     without_mask = os.listdir(MASKOFF_FOLDER)
-
-    for filename in with_mask:
+    mask_chin = os.listdir(MASKCHIN_FOLDER)
+    mask_mouth = os.listdir(MASKMOUTH_FOLDER)
+    
+    for filename in mask_chin:
         data_info["filename"].append(f"{MASKCHIN_FOLDER}/{filename}")
         data_info["label"].append(f"Mask only in the chin")
         data_info["target"].append(1)
@@ -30,7 +32,7 @@ def load_dataframe():
         img = cv.cvtColor(img, cv.COLOR_BGR2GRAY).flatten()
         data_info["image"].append(img)
 
-    for filename in with_mask:
+    for filename in mask_mouth:
         data_info["filename"].append(f"{MASKMOUTH_FOLDER}/{filename}")
         data_info["label"].append(f"Mask below the nose")
         data_info["target"].append(1)
@@ -52,7 +54,7 @@ def load_dataframe():
         data_info["image"].append(img)
 
         
-    dataframe = pd.DataFrame(dados)
+    dataframe = pd.DataFrame(data_info)
 
     return dataframe
 

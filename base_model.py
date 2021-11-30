@@ -1,9 +1,9 @@
-from config import *
 from keras.layers import GlobalAveragePooling2D, Dropout, Dense
 from keras.applications.mobilenet import MobileNet
-from keras.optimizers import Adam
+import keras.optimizer_v2.adam as adam
 from keras.models import Model
 
+from config import *
 
 def create_base_model():
   #base model
@@ -20,6 +20,6 @@ def create_base_model():
   predictions = Dense(NUM_CLASSES, activation='softmax')(x)
   model = Model(inputs=base_model.input, outputs=predictions)
 
-  opt = Adam(lr=0.000125)
+  opt = adam(lr=0.000125)
   model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
   return model
