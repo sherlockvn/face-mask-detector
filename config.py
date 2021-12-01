@@ -1,11 +1,11 @@
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-from tensorflow.compat.v1 import ConfigProto
-from tensorflow.compat.v1 import InteractiveSession
+# from tensorflow.compat.v1 import ConfigProto
+# from tensorflow.compat.v1 import InteractiveSession
 
-config = ConfigProto()
-session = InteractiveSession(config=config)
+# config = ConfigProto()
+# session = InteractiveSession(config=config)
 
 # parameters
 CHECKPOINT_FILE = './service_weights.h5'
