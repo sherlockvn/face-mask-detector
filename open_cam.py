@@ -1,7 +1,7 @@
 import silence_tensorflow.auto
 from tensorflow.python.keras.models import load_model
-from tensorflow.compat.v1 import InteractiveSession
-from tensorflow.compat.v1 import ConfigProto
+from tensorflow._api.v2.compat.v1 import InteractiveSession
+from tensorflow._api.v2.compat.v1 import ConfigProto
 import numpy as np
 import cv2
 
