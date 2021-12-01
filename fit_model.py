@@ -8,7 +8,7 @@ def fit_model(train_df, validate_df, model, callbacks_list, train_generator, val
   total_train = train_df.shape[0]
   total_validate = validate_df.shape[0]
 
-  model.load_weights(CHECKPOINT_FILE)
+  #model.load_weights(CHECKPOINT_FILE)
 
   history = model.fit_generator(
       train_generator, 

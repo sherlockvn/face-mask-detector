@@ -83,8 +83,3 @@ def pca_model(x_train):
     
     return pca
 
-dataframe = load_dataframe() 
-
-X_train, X_test, y_train, y_test = train_test(dataframe) 
-pca = pca_model(X_train) 
-

@@ -20,6 +20,6 @@ def create_base_model():
   predictions = Dense(NUM_CLASSES, activation='softmax')(x)
   model = Model(inputs=base_model.input, outputs=predictions)
 
-  opt = adam(lr=0.000125)
+  opt = adam.Adam(lr=0.000125)
   model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
   return model
