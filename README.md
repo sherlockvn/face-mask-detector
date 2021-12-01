@@ -3,7 +3,7 @@
 ## library needed:
  - tensorflow, numpy, cv2, keras, sci-ki learn,...
 ```
-pip3 install -r requirement.txt
+pip3 install -r requirements.txt
 ```
 # training the mask detector
 train the network with datasets
