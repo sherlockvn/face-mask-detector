@@ -8,7 +8,7 @@ pip3 install -r requirement.txt
 # training the mask detector
 train the network with datasets
 ```
-python training_model.py
+python3 training_model.py
 ```
 
 # detect mask in real-time

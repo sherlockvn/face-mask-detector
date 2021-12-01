@@ -23,7 +23,8 @@ def load_dataframe():
     without_mask = os.listdir(MASKOFF_FOLDER)
     mask_chin = os.listdir(MASKCHIN_FOLDER)
     mask_mouth = os.listdir(MASKMOUTH_FOLDER)
-    
+
+    print("[INFO] loading mask chin dataset...")
     for filename in mask_chin:
         data_info["filename"].append(f"{MASKCHIN_FOLDER}/{filename}")
         data_info["label"].append(f"Mask only in the chin")
@@ -32,27 +33,31 @@ def load_dataframe():
         img = cv.cvtColor(img, cv.COLOR_BGR2GRAY).flatten()
         data_info["image"].append(img)
 
+    print("[INFO] loading mask mouth dataset...")
     for filename in mask_mouth:
         data_info["filename"].append(f"{MASKMOUTH_FOLDER}/{filename}")
         data_info["label"].append(f"Mask below the nose")
         data_info["target"].append(1)
         img = cv.cvtColor(cv.imread(f"{MASKMOUTH_FOLDER}/{filename}"), cv.COLOR_BGR2GRAY).flatten()
         data_info["image"].append(img)
-
+    
+    print("[INFO] loading without mask dataset...")
     for filename in without_mask:
         data_info["filename"].append(f"{MASKOFF_FOLDER}/{filename}")
         data_info["label"].append(f"Without Mask")
         data_info["target"].append(2)
         img = cv.cvtColor(cv.imread(f"{MASKOFF_FOLDER}/{filename}"), cv.COLOR_BGR2GRAY).flatten()
         data_info["image"].append(img)
-
+    
+    
+    print("[INFO] loading mask dataset...")
     for filename in with_mask:
         data_info["filename"].append(f"{MASKON_FOLDER}/{filename}")
         data_info["label"].append(f"With Mask")
         data_info["target"].append(3)
         img = cv.cvtColor(cv.imread(f"{MASKON_FOLDER}/{filename}"), cv.COLOR_BGR2GRAY).flatten()
         data_info["image"].append(img)
-
+    print("[INFO] loading all dataset successfully!")
         
     dataframe = pd.DataFrame(data_info)
 

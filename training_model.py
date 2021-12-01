@@ -7,8 +7,10 @@ from fit_model import fit_model
 from dataframe import load_dataframe
 # preprocess dataset
 train_df, validate_df = create_dataset()
+print("[INFO] create dataset successfully!")
 # init base model
 model = create_base_model();
+print("[INFO] create base model successfully!")
 # callbacks list
 callbacks_list = callbacks.callbacks_list
 # generator
