@@ -1,12 +1,11 @@
 FROM tensorflow/tensorflow
-RUN apt update & apt upgrade
-RUN apt-get update & apt-get upgrade
+RUN apt update -y & apt upgrade -y
+RUN apt-get update -y & apt-get upgrade -y
 RUN apt-get install zip unzip -y --fix-missing
 
-COPY requirements.txt requirements.txt
+COPY . .
 RUN pip3 install -r requirements.txt
 
-COPY . .
 RUN python3 training_model.py
 
-RUN echo "create docker image successfully!"
+RUN echo "Docker image has been built!"
