@@ -9,10 +9,10 @@ def fit_model(train_df, validate_df, model, callbacks_list, train_generator, val
   total_validate = validate_df.shape[0]
 
   #model.load_weights(CHECKPOINT_FILE)
-
-  history = model.fit_generator(
+  print("[INFO] training head...")
+  history = model.fit(
       train_generator, 
-      epochs=epochs,
+      epochs=EPOCHS,
       validation_data=validation_generator,
       validation_steps=total_validate//BATCH_SIZE,
       steps_per_epoch=total_train//BATCH_SIZE,

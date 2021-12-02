@@ -1,6 +1,6 @@
 from keras import callbacks
 from create_dataset import create_dataset
-from base_model import create_base_model
+from model import create_base_model
 import callbacks
 from generator import generator
 from fit_model import fit_model
