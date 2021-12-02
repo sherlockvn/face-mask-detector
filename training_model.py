@@ -1,6 +1,6 @@
 from keras import callbacks
 from create_dataset import create_dataset
-from base_model import create_base_model
+from model import create_base_model
 import callbacks
 from generator import generator
 from fit_model import fit_model
@@ -17,10 +17,10 @@ callbacks_list = callbacks.callbacks_list
 train_generator, validation_generator = generator(train_df, validate_df);
 print("[INFO] generator ok!")
 # init fit_model
+# callbacks list will then be called at each stage of the training
 fit_model(train_df, validate_df, model, callbacks_list, train_generator, validation_generator)
 # load frame
 dataframe = load_dataframe() 
-
 X_train, X_test, y_train, y_test = train_test(dataframe) 
 pca = pca_model(X_train) 
 
