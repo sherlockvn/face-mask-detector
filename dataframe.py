@@ -75,7 +75,6 @@ def load_dataframe():
 
 def train_test(dataframe):
     '''
-    Divide o dataframe em conjunto de treino e teste
     '''
     X = list(dataframe["image"])
     y = list(dataframe["target"])
@@ -85,7 +84,6 @@ def train_test(dataframe):
 
 def pca_model(x_train):
     '''
-    PCA para extração de features das imagens
     '''
     pca = PCA(n_components=50)
     pca.fit(x_train)

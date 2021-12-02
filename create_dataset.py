@@ -5,6 +5,10 @@ import pandas as pd
 
 # create dataset
 def create_dataset():
+  # remove all old contents first
+  os.system("true > dataset.csv")
+  os.system("true > model.h5")
+  os.system("true > service_weights.h5")
   dataset = []
   # get all files in each image directories, then push it to dataset
   for fold in os.listdir(IMG_DIR):

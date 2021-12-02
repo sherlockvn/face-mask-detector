@@ -29,5 +29,5 @@ def fit_model(train_df, validate_df, model, callbacks_list, train_generator, val
 
   print(confusion_matrix(validate_df.category, validate_df.pred))
 
-  model.save('model_colab.h5')
+  model.save('model.h5')
 
