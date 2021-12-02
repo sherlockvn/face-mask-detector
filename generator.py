@@ -1,4 +1,4 @@
-from config import *
+from config import IMG_DIR, IMAGE_SIZE, BATCH_SIZE
 from keras.preprocessing.image import ImageDataGenerator
 import random
 import numpy as np
@@ -14,6 +14,7 @@ def add_noise(img):
     return img
 
 def generator(train_df, validate_df):
+  #generate batches of image data with configuration below, also add noise
   train_datagen = ImageDataGenerator(
       brightness_range=[0.2, 1.6],
       rescale=1. / 255,
