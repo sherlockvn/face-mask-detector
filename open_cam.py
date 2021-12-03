@@ -14,7 +14,7 @@ session = InteractiveSession(config=config)
 keras_model = load_model('model.h5')
 cam = cv2.VideoCapture(0) 
 file_name = "haarcascade_frontalface_alt2.xml"
-classifier = cv2.CascadeClassifier(f"{cv2.haarcascades}/{file_name}")
+classifier = cv2.CascadeClassifier(f"{cv2.data.haarcascades}/{file_name}")
 
 
 label = {
@@ -47,7 +47,7 @@ while True:
             gray_face = cv2.resize(gray_face, (300, 300))
             gray_face = gray_face / 255
             gray_face = np.expand_dims(gray_face, axis=0)
-            gray_face = gray_face.reshape((1, 300, 300, 1))
+            gray_face = gray_face.reshape((1, 300, 300, 3))
             pred = np.argmax(keras_model.predict(gray_face))
             classification = label[pred]["name"]
             color = label[pred]["color"]
