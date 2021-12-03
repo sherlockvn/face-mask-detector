@@ -36,8 +36,10 @@ while True:
     
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
+    # perform face detection using the appropriate haar cascade
     faces = classifier.detectMultiScale(gray)
 
+    # loop over face bounding box
     for x,y,w,h in faces:
         color = (0,0,0)
         gray_face = gray[y:y+h+50, x:x+w+50]
@@ -47,7 +49,7 @@ while True:
             gray_face = cv2.resize(gray_face, (300, 300))
             gray_face = gray_face / 255
             gray_face = np.expand_dims(gray_face, axis=0)
-            gray_face = gray_face.reshape((1, 300, 300, 1))
+            gray_face = gray_face.reshape((1, 300, 300, 3))
             pred = np.argmax(keras_model.predict(gray_face))
             classification = label[pred]["name"]
             color = label[pred]["color"]
