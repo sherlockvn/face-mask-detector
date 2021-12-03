@@ -1,10 +1,11 @@
-from config import *
+from config import EPOCHS, BATCH_SIZE
 
 import numpy as np
 from sklearn.metrics import classification_report, confusion_matrix
+from plot_keras_history import show_history, plot_history
 
 def fit_model(train_df, validate_df, model, callbacks_list, train_generator, validation_generator):
-  #FIt model
+  #Fit model
   total_train = train_df.shape[0]
   total_validate = validate_df.shape[0]
 
@@ -30,4 +31,7 @@ def fit_model(train_df, validate_df, model, callbacks_list, train_generator, val
   print(confusion_matrix(validate_df.category, validate_df.pred))
 
   model.save('model.h5')
+
+  show_history(history)
+  plot_history(history, path="history_report.png")
 

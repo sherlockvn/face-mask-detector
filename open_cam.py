@@ -14,7 +14,7 @@ session = InteractiveSession(config=config)
 keras_model = load_model('model.h5')
 cam = cv2.VideoCapture(0) 
 file_name = "haarcascade_frontalface_alt2.xml"
-classifier = cv2.CascadeClassifier(f"{cv2.haarcascades}/{file_name}")
+classifier = cv2.CascadeClassifier(f"{cv2.data.haarcascades}/{file_name}")
 
 
 label = {
@@ -33,13 +33,8 @@ while True:
 
     if cv2.waitKey(1) & 0xff == ord('q'):
         break
-    
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-    # perform face detection using the appropriate haar cascade
+    gray = frame
     faces = classifier.detectMultiScale(gray)
-
-    # loop over face bounding box
     for x,y,w,h in faces:
         color = (0,0,0)
         gray_face = gray[y:y+h+50, x:x+w+50]
@@ -51,6 +46,7 @@ while True:
             gray_face = np.expand_dims(gray_face, axis=0)
             gray_face = gray_face.reshape((1, 300, 300, 3))
             pred = np.argmax(keras_model.predict(gray_face))
+            print(keras_model.predict(gray_face))
             classification = label[pred]["name"]
             color = label[pred]["color"]
 
