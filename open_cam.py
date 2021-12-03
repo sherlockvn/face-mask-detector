@@ -5,6 +5,8 @@ from tensorflow._api.v2.compat.v1 import ConfigProto
 import numpy as np
 import cv2
 
+from config import IMAGE_CHANNELS
+
 
 config = ConfigProto()
 config.gpu_options.allow_growth = True
@@ -34,21 +36,21 @@ while True:
     if cv2.waitKey(1) & 0xff == ord('q'):
         break
     
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    rgb = cv2.cvtColor(frame, cv2.COLOR_BGRA2RGB)
 
-    faces = classifier.detectMultiScale(gray)
+    faces = classifier.detectMultiScale(rgb)
 
     for x,y,w,h in faces:
         color = (0,0,0)
-        gray_face = gray[y:y+h+50, x:x+w+50]
+        rgb_face = rgb[y:y+h+50, x:x+w+50]
 
-        if gray_face.shape[0] >= 200 and gray_face.shape[1] >= 200:
+        if rgb_face.shape[0] >= 200 and rgb_face.shape[1] >= 200:
 
-            gray_face = cv2.resize(gray_face, (300, 300))
-            gray_face = gray_face / 255
-            gray_face = np.expand_dims(gray_face, axis=0)
-            gray_face = gray_face.reshape((1, 300, 300, 3))
-            pred = np.argmax(keras_model.predict(gray_face))
+            rgb_face = cv2.resize(rgb_face, (300, 300))
+            rgb_face = rgb_face / 255
+            rgb_face = np.expand_dims(rgb_face, axis=0)
+            rgb_face = rgb_face.reshape((1, 300, 300, IMAGE_CHANNELS))
+            pred = np.argmax(keras_model.predict(rgb_face))
             classification = label[pred]["name"]
             color = label[pred]["color"]
 

@@ -1,4 +1,4 @@
-from config import *
+from config import MASKON_FOLDER, MASKOFF_FOLDER, MASKCHIN_FOLDER, MASKMOUTH_FOLDER
 import cv2 as cv
 import pandas as pd
 import os

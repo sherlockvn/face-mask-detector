@@ -4,7 +4,7 @@ from keras.layers.core.flatten import Flatten
 import keras.optimizer_v2.adam as adam
 from keras.models import Model
 
-from config import *
+from config import IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_CHANNELS,NUM_CLASSES
 
 def create_base_model():
   #use light weight deep neutral networks 
@@ -30,7 +30,7 @@ def create_base_model():
   model = Model(inputs=base_model.input, outputs=predictions)
   # use Adam optimizer with learing rate is 0.000125
   opt = adam.Adam(lr=0.000125)
-  # configure model with loss function is categorial cross entropy because of multi-class classfication task
+  # configure model with loss function is categorial cross entropy because of multi-class classification task
   # and metric is accuracy only before start training 
   model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
   return model

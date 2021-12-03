@@ -1,4 +1,4 @@
-from config import *
+from config import IMG_DIR
 import os
 from sklearn.model_selection import train_test_split
 import pandas as pd 
