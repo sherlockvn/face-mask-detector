@@ -21,7 +21,7 @@ def fit_model(train_df, validate_df, model, callbacks_list, train_generator, val
   )
 
   nb_samples = validate_df.shape[0]
-  predict = model.predict_generator(validation_generator, steps=np.ceil(nb_samples/BATCH_SIZE))
+  predict = model.predict(validation_generator, steps=np.ceil(nb_samples/BATCH_SIZE))
   validate_df['pred'] = np.argmax(predict, axis=-1)
   label_map = dict((v,k) for k,v in train_generator.class_indices.items())
   validate_df['pred'] = validate_df['pred'].replace(label_map)

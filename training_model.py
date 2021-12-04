@@ -5,6 +5,10 @@ import callbacks
 from generator import generator
 from fit_model import fit_model
 from dataframe import *
+import time
+
+start_time = time.time()
+
 # preprocess dataset
 train_df, validate_df = create_dataset()
 print("[INFO] create dataset successfully!")
@@ -23,6 +27,8 @@ fit_model(train_df, validate_df, model, callbacks_list, train_generator, validat
 dataframe = load_dataframe() 
 X_train, X_test, y_train, y_test = train_test(dataframe) 
 pca = pca_model(X_train) 
+
+print("Training time total: ", time.time() - start_time)
 
 
 

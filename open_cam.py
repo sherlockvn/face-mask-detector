@@ -46,7 +46,7 @@ while True:
             gray_face = np.expand_dims(gray_face, axis=0)
             gray_face = gray_face.reshape((1, 300, 300, 3))
             pred = np.argmax(keras_model.predict(gray_face))
-            print(keras_model.predict(gray_face))
+            # print(keras_model.predict(gray_face))
             classification = label[pred]["name"]
             color = label[pred]["color"]
 
