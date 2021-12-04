@@ -25,3 +25,7 @@ MASKON_FOLDER = DATASET + "maskon"
 MASKOFF_FOLDER = DATASET + "maskoff"
 MASKCHIN_FOLDER = DATASET + "maskchin"
 MASKMOUTH_FOLDER = DATASET + "maskmouth"
+
+CAFFE_PROTO_FILE = "caffe_face_detector/deploy.prototxt.txt"
+MODEL_FILE = "caffe_face_detector/res10_300x300_ssd_iter_140000.caffemodel"
+CONFIDENCE = 0.90
