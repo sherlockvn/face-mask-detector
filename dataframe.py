@@ -28,8 +28,8 @@ def load_dataframe():
     for filename in mask_chin:
         data_info["filename"].append(f"{MASKCHIN_FOLDER}/{filename}")
         data_info["label"].append(f"Mask only in the chin")
-        data_info["target"].append(1)
-        img = cv.imread(f"{MASKCHIN_FOLDER}/{filename}").flatten()
+        data_info["target"].append(0)
+        img = cv.cvtColor(cv.imread(f"{MASKCHIN_FOLDER}/{filename}"), cv.COLOR_BGR2RGB).flatten()
         data_info["image"].append(img)
 
     print("[INFO] 2/4 loading dataset: mask mouth dataset...")
@@ -37,7 +37,7 @@ def load_dataframe():
         data_info["filename"].append(f"{MASKMOUTH_FOLDER}/{filename}")
         data_info["label"].append(f"Mask below the nose")
         data_info["target"].append(1)
-        img = cv.imread(f"{MASKMOUTH_FOLDER}/{filename}").flatten()
+        img = cv.cvtColor(cv.imread(f"{MASKMOUTH_FOLDER}/{filename}"), cv.COLOR_BGR2RGB).flatten()
         data_info["image"].append(img)
     
     print("[INFO] 3/4 loading dataset: maskoff dataset...")
@@ -45,7 +45,7 @@ def load_dataframe():
         data_info["filename"].append(f"{MASKOFF_FOLDER}/{filename}")
         data_info["label"].append(f"Without Mask")
         data_info["target"].append(2)
-        img = cv.imread(f"{MASKOFF_FOLDER}/{filename}").flatten()
+        img = cv.cvtColor(cv.imread(f"{MASKOFF_FOLDER}/{filename}"), cv.COLOR_BGR2RGB).flatten()
         data_info["image"].append(img)
     
     
@@ -54,7 +54,7 @@ def load_dataframe():
         data_info["filename"].append(f"{MASKON_FOLDER}/{filename}")
         data_info["label"].append(f"With Mask")
         data_info["target"].append(3)
-        img = cv.imread(f"{MASKON_FOLDER}/{filename}").flatten()
+        img = cv.cvtColor(cv.imread(f"{MASKON_FOLDER}/{filename}"), cv.COLOR_BGR2RGB).flatten()
         data_info["image"].append(img)
     print("[INFO] DONE loaded all dataset!")
         
