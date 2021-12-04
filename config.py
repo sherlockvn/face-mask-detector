@@ -28,4 +28,4 @@ MASKMOUTH_FOLDER = DATASET + "maskmouth"
 
 CAFFE_PROTO_FILE = "caffe_face_detector/deploy.prototxt.txt"
 MODEL_FILE = "caffe_face_detector/res10_300x300_ssd_iter_140000.caffemodel"
-CONFIDENCE = 0.90
+CONFIDENCE = 0.7

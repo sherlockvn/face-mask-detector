@@ -47,12 +47,13 @@ while True:
         # extract the face ROI, convert it from BGR to RGB channel
 		# ordering, resize it to 224x224, and preprocess it
         face = frame[startY:endY, startX:endX]
-        face = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
         face = cv2.resize(face, (300, 300))
+        face = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
         face = img_to_array(face)
         face = preprocess_input(face)
         face = np.expand_dims(face, axis=0)
         pred = np.argmax(keras_model.predict(face))
+        print(keras_model.predict(face))
         classification = label[pred]["name"]
         color = (0,0,0)
         color = label[pred]["color"]
