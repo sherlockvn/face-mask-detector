@@ -23,8 +23,7 @@ time.sleep(2.0)
 
 while True:
     frame = cam.read()
-    # frame size
-    frame = imutils.resize(frame, width=800)
+    frame = imutils.resize(frame, width=400)
     # grab the frame dimensions and convert it to a blob
     (h, w) = frame.shape[:2]
     blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)), 1.0,
@@ -54,7 +53,7 @@ while True:
         face = preprocess_input(face)
         face = np.expand_dims(face, axis=0)
         pred = np.argmax(keras_model.predict(face))
-        # print(keras_model.predict(face))
+        print(keras_model.predict(face))
         classification = label[pred]["name"]
         color = (0,0,0)
         color = label[pred]["color"]
