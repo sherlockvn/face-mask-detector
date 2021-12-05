@@ -19,7 +19,7 @@ IMG_DIR = 'dataset/imagens/'
 BATCH_SIZE = 32
 NUM_CLASSES = 4
 
-EPOCHS=20
+EPOCHS=50
 DATASET = "dataset/imagens/"
 MASKON_FOLDER = DATASET + "maskon"
 MASKOFF_FOLDER = DATASET + "maskoff"
