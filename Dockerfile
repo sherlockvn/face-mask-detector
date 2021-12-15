@@ -6,6 +6,6 @@ RUN apt-get install zip unzip -y --fix-missing
 COPY . .
 RUN pip3 install -r requirements.txt
 
-RUN python3 training_model.py
+RUN python3 src/train/training_model.py
 
 RUN echo "Docker image has been built!"

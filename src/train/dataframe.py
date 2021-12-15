@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.model_selection import train_test_split
 # configs
-from config import MASKON_FOLDER, MASKOFF_FOLDER, MASKCHIN_FOLDER, MASKMOUTH_FOLDER
+from config.config import MASKON_FOLDER, MASKOFF_FOLDER, MASKCHIN_FOLDER, MASKMOUTH_FOLDER
 
 # load dataframe
 def load_dataframe():

@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.metrics import classification_report, confusion_matrix
 from plot_keras_history import show_history, plot_history
 # configs
-from config import EPOCHS, BATCH_SIZE
+from config.config import EPOCHS, BATCH_SIZE
 
 # fit model
 def fit_model(train_df, test_df, model, callbacks_list, train_generator, test_generator):
@@ -31,9 +31,9 @@ def fit_model(train_df, test_df, model, callbacks_list, train_generator, test_ge
   print(confusion_matrix(test_df.category, test_df.pred))
 
   # save model
-  model.save('model.h5')
+  model.save(PROJECT_PATH + "/models/model.h5")
 
   # show and save history report
   show_history(history)
-  plot_history(history, path="history_report.png")
+  plot_history(history, path= PROJECT_PATH + "/reports/history_report.png")
 

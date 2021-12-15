@@ -3,14 +3,14 @@ import os
 import pandas as pd 
 from sklearn.model_selection import train_test_split
 # configs
-from config import IMG_DIR
+from config.config import IMG_DIR,PROJECT_PATH
 
 # create dataset
 def create_dataset():
   # remove old resources: dataset.csv, model.h5, service_weights.h5
   os.system("true > dataset.csv")
-  os.system("true > model.h5")
-  os.system("true > service_weights.h5")
+  os.system("true > " + PROJECT_PATH + "/models/model.h5")
+  os.system("true > " + PROJECT_PATH + "/models/service_weights.h5")
 
   # init dataset
   dataset = []

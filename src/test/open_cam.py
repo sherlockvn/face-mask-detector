@@ -11,7 +11,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 
 # load model
-keras_model = load_model('model.h5')
+keras_model = load_model(PROJECT_PATH + "models/model.h5")
 # facenet
 facenet = cv2.dnn.readNetFromCaffe(CAFFE_PROTO_FILE, MODEL_FILE)
 

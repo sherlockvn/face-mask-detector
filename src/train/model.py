@@ -1,5 +1,5 @@
 # configs
-from config import IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_CHANNELS,NUM_CLASSES
+from config.config import IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_CHANNELS,NUM_CLASSES
 # keras api
 from tensorflow.keras.layers import AveragePooling2D
 from tensorflow.keras.layers import Dropout
