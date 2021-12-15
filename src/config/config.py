@@ -14,8 +14,6 @@ IMAGE_CHANNELS = 3
 IMG_DIR = PROJECT_PATH + "/dataset/imagens/"
 BATCH_SIZE = 32
 NUM_CLASSES = 4
-
-# epochs
 EPOCHS = 50
 
 # dataset

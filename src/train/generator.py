@@ -22,7 +22,7 @@ def generator(train_df, test_df):
   # generate batches of image data with configuration below, also add noise
   train_datagen = ImageDataGenerator(
       brightness_range=[0.2, 1.6],
-      rescale=1. / 255,
+      rescale=1. / 255, # for converting rgb coefficients in 0-255 in original images to values between 0 and 1
       rotation_range=0, 
       width_shift_range=0.1,
       height_shift_range=0.1, 

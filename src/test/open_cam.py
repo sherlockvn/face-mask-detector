@@ -12,15 +12,16 @@ from tensorflow.keras.preprocessing.image import img_to_array
 
 # load model
 keras_model = load_model(PROJECT_PATH + "models/model.h5")
-# facenet
+# load predictive model from prototype 
+# and trained model file caffenet which is for detecting human face
 facenet = cv2.dnn.readNetFromCaffe(CAFFE_PROTO_FILE, MODEL_FILE)
 
 # labels
 label = {
-    0: {"name": "Mask only in the chin", "color": (51, 153, 255), "id": 0},
-    1: {"name": "Mask below the nose", "color": (255, 255, 0), "id": 1},
-    2: {"name": "Without mask", "color": (0,0,255), "id": 2},
-    3: {"name": "With mask ok", "color": (0, 102, 51), "id": 3},
+    0: {"name": "Mask only in the chin", "color": (51, 153, 255), "id": 0}, # yellow text
+    1: {"name": "Mask below the nose", "color": (255, 255, 0), "id": 1}, # lightblue text
+    2: {"name": "Without mask", "color": (0, 0, 255), "id": 2}, # red text
+    3: {"name": "With mask ok", "color": (0, 102, 51), "id": 3}, # green text
 }
 
 # open cam

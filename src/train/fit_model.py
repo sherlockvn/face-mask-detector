@@ -21,8 +21,12 @@ def fit_model(train_df, test_df, model, callbacks_list, train_generator, test_ge
   )
 
   nb_samples = test_df.shape[0]
+
+  # using model to predicting
   predict = model.predict(test_generator, steps=np.ceil(nb_samples/BATCH_SIZE))
   test_df['pred'] = np.argmax(predict, axis=-1)
+
+  # label predictions
   label_map = dict((v,k) for k,v in train_generator.class_indices.items())
   test_df['pred'] = test_df['pred'].replace(label_map)
 
