@@ -1,8 +1,10 @@
-from config import CHECKPOINT_FILE
+# configs
+from config.config import CHECKPOINT_FILE
+# keras api
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
 
 # callbacks list include 
-# save our model to checkpoint file, 
+# save model to checkpoint file, 
 # stop training when accuracy has stopped improving
 # reduce learning rate when accuracy has stopped improving with factor of 0.5, minimum is 0.00001
 callbacks_list = [

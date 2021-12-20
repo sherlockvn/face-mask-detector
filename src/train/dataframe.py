@@ -1,17 +1,13 @@
-from config import MASKON_FOLDER, MASKOFF_FOLDER, MASKCHIN_FOLDER, MASKMOUTH_FOLDER
+import os
 import cv2 as cv
 import pandas as pd
-import os
 from sklearn.decomposition import PCA
-from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
+# configs
+from config.config import MASKON_FOLDER, MASKOFF_FOLDER, MASKCHIN_FOLDER, MASKMOUTH_FOLDER
 
-
+# load dataframe
 def load_dataframe():
-    '''
-    comment here
-    '''
     data_info = {
         "filename": [],
         "label": [],
@@ -62,19 +58,16 @@ def load_dataframe():
 
     return dataframe
 
-
+# train test
 def train_test(dataframe):
-    '''
-    '''
     X = list(dataframe["image"])
     y = list(dataframe["target"])
 
     return train_test_split(X, y, train_size=0.40, random_state=13)
 
 
+# pca model
 def pca_model(x_train):
-    '''
-    '''
     pca = PCA(n_components=50)
     pca.fit(x_train)
     
