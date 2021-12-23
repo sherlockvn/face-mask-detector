@@ -8,10 +8,10 @@ pip3 install -r requirements.txt
 # training the mask detector
 train the network with datasets
 ```
-python3 src/train/training_model.py
+python3 -m src.train.training_model.py
 ```
 
 # detect mask in real-time
 ```
-python3 src/test/open_cam.py
+python3 -m src.test.open_cam.py
 ```

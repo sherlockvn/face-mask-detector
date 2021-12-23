@@ -18,7 +18,7 @@ def add_noise(img):
     return img
 
 # generator
-def generator(train_df, test_df):
+def generator(train_df, validate_df):
   # generate batches of image data with configuration below, also add noise
   train_datagen = ImageDataGenerator(
       brightness_range=[0.2, 1.6],
@@ -44,9 +44,9 @@ def generator(train_df, test_df):
       batch_size=BATCH_SIZE
   )
 
-  test_datagen = ImageDataGenerator(rescale=1./255)
-  test_generator = test_datagen.flow_from_dataframe(
-      test_df, 
+  validation_datagen = ImageDataGenerator(rescale=1./255)
+  validation_generator = validation_datagen.flow_from_dataframe(
+      validate_df, 
       IMG_DIR,
       x_col='filename',
       y_col='category',
@@ -56,4 +56,4 @@ def generator(train_df, test_df):
       shuffle=False,
       batch_size=BATCH_SIZE
   )
-  return [train_generator, test_generator]
+  return [train_generator, validation_generator]
