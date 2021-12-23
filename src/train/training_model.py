@@ -5,7 +5,7 @@ from fit_model import fit_model
 from generator import generator
 from dataframe import *
 # keras api
-from keras import callbacks
+from tensorflow.keras import callbacks
 
 # preprocess dataset
 train_df, test_df = create_dataset()

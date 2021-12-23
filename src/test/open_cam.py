@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 # configs
-from config import CAFFE_PROTO_FILE, MODEL_FILE, CONFIDENCE
+from src.config.config import PROJECT_PATH, CAFFE_PROTO_FILE, MODEL_FILE, CONFIDENCE
 # video utils
 import imutils, time
 from imutils.video import VideoStream
@@ -11,7 +11,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 
 # load model
-keras_model = load_model(PROJECT_PATH + "models/model.h5")
+keras_model = load_model(PROJECT_PATH + "/models/model.h5")
 # load predictive model from prototype 
 # and trained model file caffenet which is for detecting human face
 facenet = cv2.dnn.readNetFromCaffe(CAFFE_PROTO_FILE, MODEL_FILE)
