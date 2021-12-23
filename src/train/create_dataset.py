@@ -3,7 +3,7 @@ import os
 import pandas as pd 
 from sklearn.model_selection import train_test_split
 # configs
-from config.config import IMG_DIR,PROJECT_PATH
+from src.config.config import IMG_DIR,PROJECT_PATH
 
 # create dataset
 def create_dataset():

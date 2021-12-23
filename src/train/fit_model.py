@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.metrics import classification_report, confusion_matrix
 from plot_keras_history import show_history, plot_history
 # configs
-from config.config import EPOCHS, BATCH_SIZE
+from src.config.config import EPOCHS, BATCH_SIZE
 
 # fit model
 def fit_model(train_df, test_df, model, callbacks_list, train_generator, test_generator):
@@ -14,8 +14,8 @@ def fit_model(train_df, test_df, model, callbacks_list, train_generator, test_ge
   history = model.fit(
       train_generator, 
       epochs=EPOCHS,
-      test_data=test_generator,
-      test_steps=total_test//BATCH_SIZE,
+      validation_data=test_generator,
+      validation_steps=total_test//BATCH_SIZE,
       steps_per_epoch=total_train//BATCH_SIZE,
       callbacks=callbacks_list
   )

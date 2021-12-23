@@ -1,7 +1,7 @@
 import random
 import numpy as np
 # configs
-from config.config import IMG_DIR, IMAGE_SIZE, BATCH_SIZE
+from src.config.config import IMG_DIR, IMAGE_SIZE, BATCH_SIZE
 # keras api
 from keras.preprocessing.image import ImageDataGenerator
 

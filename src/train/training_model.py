@@ -1,11 +1,11 @@
-import callbacks
-from create_dataset import create_dataset
-from model import create_base_model
-from fit_model import fit_model
-from generator import generator
-from dataframe import *
+from .callbacks import *
+from .create_dataset import create_dataset
+from .model import create_base_model
+from .fit_model import fit_model
+from .generator import generator
+from .dataframe import *
 # keras api
-from tensorflow.keras import callbacks
+from tensorflow.keras.callbacks import CallbackList
 
 # preprocess dataset
 train_df, test_df = create_dataset()
@@ -16,7 +16,7 @@ model = create_base_model()
 print("[INFO] create base model successfully!")
 
 # init callbacks list
-callbacks_list = callbacks.callbacks_list
+callbacks_list = CallbackList
 print("[INFO] callbacks list initialized successfully!")
 
 # generator

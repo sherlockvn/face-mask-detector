@@ -1,5 +1,5 @@
 # configs
-from config.config import CHECKPOINT_FILE
+from src.config.config import CHECKPOINT_FILE
 # keras api
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
 
